@@ -13,8 +13,14 @@ import (
 
 func main() {
 
-	//Set path
-	path := "/home/anton/Desktop/100MSDCF"
+	if (len(os.Args)!=2){
+		fmt.Println("You need to specify the folder path: order-my-files <folder path>")
+		os.Exit(1)	
+	}
+
+	//Get argument 1 as path
+	path := os.Args[1]
+	fmt.Println("Path: ",path)
 
 	//Get the list of files of the directory	
 	fileList, err := ioutil.ReadDir(path)
